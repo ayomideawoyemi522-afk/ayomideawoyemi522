@@ -1,164 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wells Fargo • Online Banking</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
-  <style>
-    body { font-family: 'Inter', system-ui, sans-serif; }
-    .wf-green { color: #00ff88; text-shadow: 0 0 12px #00ff88; }
-    .glass { background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(20px); }
-    .header-bg { background: linear-gradient(90deg, #111827, #1e2937); }
-    .page { display: none; }
-    .page.active { display: block; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harps Tech - Home</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #111;
+  color: #00ff88;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+}
+
+button {
+  background: #00ff88;
+  border: none;
+  padding: 12px 20px;
+  color: #000;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #00cc66;
+}
+</style>
 </head>
-<body class="bg-zinc-950 text-white min-h-screen">
 
-  <!-- LOGIN -->
-  <div id="login-page" class="page active min-h-screen flex items-center justify-center bg-gradient-to-br from-zinc-900 to-black">
-    <div class="glass border border-[#00ff88]/40 rounded-3xl w-full max-w-md p-10 mx-4">
-      <div class="flex justify-center mb-8">
-        <div class="w-14 h-14 bg-[#00ff88] text-black font-black text-4xl flex items-center justify-center rounded-2xl shadow-lg">WF</div>
-      </div>
-      <h1 class="text-4xl font-bold text-center mb-1 wf-green">Wells Fargo</h1>
-      <p class="text-center text-zinc-400 mb-10">Secure Online Banking</p>
+<body>
 
-      <input id="username" type="text" value="ayomide@harps.tech" placeholder="Username" 
-             class="w-full mb-4 px-5 py-4 bg-zinc-900 border border-zinc-700 rounded-2xl focus:border-[#00ff88] outline-none">
-      <input id="password" type="password" value="demo123" placeholder="Password" 
-             class="w-full mb-6 px-5 py-4 bg-zinc-900 border border-zinc-700 rounded-2xl focus:border-[#00ff88] outline-none">
+<div class="container">
+  <h1>Welcome to My Tech Lab 🧪</h1>
+  <p>I build cool stuff with code 🚀</p>
 
-      <button onclick="login()" 
-              class="w-full bg-[#00ff88] text-black font-bold py-5 rounded-2xl text-lg hover:bg-white transition">
-        Sign In Securely
-      </button>
+  <a href="about.html">
+    <button>Go to About →</button>
+  </a>
+</div>
 
-      <div class="text-center text-xs text-zinc-500 mt-8">
-        © 2026 Wells Fargo Bank • Portfolio Demo Only
-      </div>
-    </div>
-  </div>
-
-  <!-- DASHBOARD -->
-  <div id="dashboard-page" class="page">
-    <!-- Top Nav -->
-    <nav class="header-bg border-b border-[#00ff88]/30 fixed w-full z-50">
-      <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 bg-[#00ff88] text-black font-black flex items-center justify-center rounded-xl">WF</div>
-          <h1 class="text-2xl font-bold tracking-tight">Wells Fargo</h1>
-        </div>
-        <div class="flex gap-8 text-sm font-medium">
-          <span onclick="switchTab(0)" class="cursor-pointer hover:text-[#00ff88] tab-btn active">Overview</span>
-          <span onclick="switchTab(1)" class="cursor-pointer hover:text-[#00ff88] tab-btn">Accounts</span>
-          <span onclick="switchTab(2)" class="cursor-pointer hover:text-[#00ff88] tab-btn">Transfer</span>
-          <span onclick="logout()" class="cursor-pointer text-red-400 hover:text-red-500">Sign Out</span>
-        </div>
-      </div>
-    </nav>
-
-    <div class="pt-24 max-w-7xl mx-auto px-6 py-8">
-      <!-- Balance -->
-      <div class="glass border border-[#00ff88]/30 rounded-3xl p-8 mb-10">
-        <p class="text-sm text-zinc-400">Total Balance</p>
-        <p class="text-6xl font-bold wf-green tracking-tighter">$48,392.75</p>
-        <p class="text-emerald-400">↑ $1,847.20 this month</p>
-      </div>
-
-      <!-- Quick Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        <div class="glass border border-[#00ff88]/20 rounded-3xl p-7">
-          <p class="text-zinc-400 text-sm">Checking</p>
-          <p class="text-4xl font-semibold mt-3">$9,284.50</p>
-        </div>
-        <div class="glass border border-[#00ff88]/20 rounded-3xl p-7">
-          <p class="text-zinc-400 text-sm">Savings</p>
-          <p class="text-4xl font-semibold mt-3">$33,450.00</p>
-        </div>
-        <div class="glass border border-[#00ff88]/20 rounded-3xl p-7">
-          <p class="text-zinc-400 text-sm">Credit Card</p>
-          <p class="text-4xl font-semibold mt-3">$1,658.25</p>
-          <p class="text-xs text-amber-400">Available credit: $8,341</p>
-        </div>
-      </div>
-
-      <!-- Recent Activity -->
-      <div class="glass border border-[#00ff88]/20 rounded-3xl p-8 mb-10">
-        <h2 class="font-semibold text-xl mb-6">Recent Activity</h2>
-        <div class="space-y-6">
-          <div class="flex justify-between">
-            <div>Starbucks • Debit</div>
-            <div class="text-red-400">-$8.45</div>
-          </div>
-          <div class="flex justify-between">
-            <div>Salary Deposit</div>
-            <div class="text-emerald-400">+$2,450.00</div>
-          </div>
-          <div class="flex justify-between">
-            <div>Transfer to Savings</div>
-            <div class="text-red-400">-$1,000.00</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Quick Actions -->
-      <div class="grid grid-cols-2 gap-6">
-        <button onclick="showTransferModal()" class="glass border border-[#00ff88]/40 hover:border-[#00ff88] rounded-3xl p-8 text-left transition">
-          <i class="fa-solid fa-arrow-right-arrow-left text-3xl mb-4"></i>
-          <p class="font-semibold">Send Money</p>
-        </button>
-        <button class="glass border border-[#00ff88]/40 hover:border-[#00ff88] rounded-3xl p-8 text-left transition">
-          <i class="fa-solid fa-credit-card text-3xl mb-4"></i>
-          <p class="font-semibold">Pay Bills</p>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Transfer Modal -->
-  <div id="transfer-modal" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-50">
-    <div class="glass border border-[#00ff88] rounded-3xl w-full max-w-md p-8 mx-4">
-      <h3 class="text-2xl font-bold mb-6">Send Money</h3>
-      <input type="text" placeholder="Recipient" class="w-full px-5 py-4 bg-zinc-900 border border-zinc-700 rounded-2xl mb-4">
-      <input type="text" placeholder="Account Number" class="w-full px-5 py-4 bg-zinc-900 border border-zinc-700 rounded-2xl mb-4">
-      <input type="number" placeholder="Amount" class="w-full px-5 py-4 bg-zinc-900 border border-zinc-700 rounded-2xl mb-6">
-      <div class="flex gap-4">
-        <button onclick="closeModal()" class="flex-1 py-4 border border-zinc-600 rounded-2xl">Cancel</button>
-        <button onclick="confirmTransfer()" class="flex-1 bg-[#00ff88] text-black font-bold py-4 rounded-2xl">Send Securely</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function login() {
-      document.getElementById('login-page').classList.remove('active');
-      document.getElementById('dashboard-page').classList.add('active');
-    }
-
-    function logout() {
-      document.getElementById('dashboard-page').classList.remove('active');
-      document.getElementById('login-page').classList.add('active');
-    }
-
-    function showTransferModal() {
-      document.getElementById('transfer-modal').classList.remove('hidden');
-    }
-
-    function closeModal() {
-      document.getElementById('transfer-modal').classList.add('hidden');
-    }
-
-    function confirmTransfer() {
-      alert("✅ Transfer Successful! (Demo Only)");
-      closeModal();
-    }
-
-    function switchTab(n) {
-      alert("Tab " + (n+1) + " clicked - Demo");
-    }
-  </script>
 </body>
-        </html>
+</html>
